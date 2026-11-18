@@ -24,6 +24,16 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Gradle Onbellek Aktiflestir
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
       - name: Paketleri Yukle ve Android Projesini Olustur
         run: |
           npm install
@@ -52,7 +62,7 @@ jobs:
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug --no-daemon
 
       - name: APK Dosyasini Indirme Linki Olarak Yukle
         uses: actions/upload-artifact@v4
