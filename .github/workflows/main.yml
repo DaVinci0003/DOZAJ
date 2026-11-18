@@ -30,6 +30,24 @@ jobs:
           npx cap add android
           npx cap sync android
 
+      - name: Simetrik Dozaj Logosunu Sabitle
+        run: |
+          mkdir -p android/app/src/main/res/mipmap-xxxhdpi
+          mkdir -p android/app/src/main/res/mipmap-xxhdpi
+          mkdir -p android/app/src/main/res/mipmap-xhdpi
+          mkdir -p android/app/src/main/res/mipmap-hdpi
+          mkdir -p android/app/src/main/res/mipmap-mdpi
+          cp assets/dozaj-logo.png android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+          cp assets/dozaj-logo.png android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+          cp assets/dozaj-logo.png android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+          cp assets/dozaj-logo.png android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+          cp assets/dozaj-logo.png android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+          cp assets/dozaj-logo.png android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png
+          cp assets/dozaj-logo.png android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png
+          cp assets/dozaj-logo.png android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png
+          cp assets/dozaj-logo.png android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png
+          cp assets/dozaj-logo.png android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png
+
       - name: APK Derle
         run: |
           cd android
