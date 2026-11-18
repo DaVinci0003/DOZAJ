@@ -1,0 +1,7 @@
+{
+  "appId": "com.dozaj.app",
+  "appName": "Dozaj",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "backgroundColor": "#080C0E"
+}
