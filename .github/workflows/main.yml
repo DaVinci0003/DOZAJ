@@ -26,8 +26,12 @@ jobs:
 
       - name: Paketleri Yukle ve Android Projesini Olustur
         run: |
+          sudo apt-get update && sudo apt-get install -y librsvg2-bin
+          rsvg-convert -w 1024 -h 1024 assets/icon-only.svg -o assets/icon-only.png
+          rsvg-convert -w 1024 -h 1024 assets/icon-foreground.svg -o assets/icon-foreground.png
           npm install
           npx cap add android
+          npx capacitor-assets generate --android --iconBackgroundColor '#0E1417' --splashBackgroundColor '#080C0E'
           npx cap sync android
 
       - name: APK Derle
